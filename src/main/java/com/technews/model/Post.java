@@ -2,6 +2,7 @@ package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
+import javafx.geometry.Pos;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -35,6 +36,9 @@ public class Post implements Serializable {
     private Date updatedAt = new Date();
     @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
+
+    public Post() {
+    }
 
     public Post(Integer id, String title, String postUrl, int voteCount, Integer userId) {
         this.id = id;
